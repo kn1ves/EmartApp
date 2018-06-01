@@ -7,8 +7,8 @@ import SimpleBottomNavigation from "./components/footer";
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: "rgb(29,128,240)" }, //Ice
-    secondary: { main: "rgb(29,128,240)" } //Crimson Sky
+    primary: { main: "#4dc5da" }, //Ice
+    secondary: { main: "#4dc5da" } //Crimson Sky
   }
 });
 
@@ -33,7 +33,7 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "center",
     color: theme.palette.text.secondary,
-    backgroundColor: "rgb(29,128,240)"
+    backgroundColor: "#4dc5da"
   }
 });
 

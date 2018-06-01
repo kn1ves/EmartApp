@@ -35,14 +35,12 @@ export const mailFolderListItems = (
       </ListItemIcon>
       <ListItemText primary="My Orders" />
     </ListItem>
-    <Link to='/signup' style={{textDecoration: 'none', color: 'rgb(255,255,255)'}}>
     <ListItem button>
       <ListItemIcon>
         <WishListIcon size="24" />
       </ListItemIcon>
       <ListItemText primary="My Wishlist" />
     </ListItem>
-    </Link>
   </div>
 );
 

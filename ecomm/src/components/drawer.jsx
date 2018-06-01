@@ -53,7 +53,7 @@ class AppDrawer extends React.Component {
     return (
       <div>
         <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.toggleDrawer('left', true)} >
-          <MenuIcon />
+          <MenuIcon style={{color: '#fff'}} />
         </IconButton>
         <SwipeableDrawer
           open={this.state.left}

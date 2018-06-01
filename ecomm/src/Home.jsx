@@ -37,7 +37,6 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "center",
     color: theme.palette.text.secondary,
-    backgroundColor: "rgb(64,83,175)"
   },
   flex: {
   display: 'flex',

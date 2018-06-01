@@ -17,7 +17,7 @@ const styles = theme => ({
   }),
   header: {
     borderRadius: 4,
-    backgroundColor: "rgb(29,128,240)",
+    backgroundColor: "#4dc5da",
     marginTop: -35,
     padding: 25,
   },

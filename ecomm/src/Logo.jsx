@@ -3,33 +3,24 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import logo from './img/logo.png';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
   },
-  flex: {
-    padding: theme.spacing.unit * 2,
-    color: theme.palette.text.secondary,
-    display: 'flex',
-  },
-  flex1: {
-    padding: theme.spacing.unit * 2,
-    color: theme.palette.text.secondary,
-    flex: 30,
-    display: 'flex',
+  divcenter: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  flex2: {
-    backgroundColor: '#c3c3c3',
-    color: theme.palette.text.secondary,
-    flex: 70,
+    textAlign: 'center',
+    height: 145,
   },
   navlinks: {
-    padding: '5%',
+    width: '100%',
     fontWeight: 250,
     textDecoration: 'none',
+    height: 145,
+    paddingTop: '13%',
   },
 });
 
@@ -38,31 +29,29 @@ function Logo(props) {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <div className={classes.flex}>
-            <div className={classes.flex1}>
-              <img src={logo} alt="Logo 232x145" height="145" width="232" />
-            </div>
-            <div className={classes.flex2}>
-              <div className={classes.navlinks}>
-                <a href="#nogo" style={{color: 'rgb(69,133,141)'}}>
-                  Home
-                </a>
-                <a href="#nogo" style={{color: 'rgb(69,133,141)'}}>
-                  About Us
-                </a>
-                <a href="#nogo" style={{color: 'rgb(69,133,141)'}}>
-                  Sell on Emart
-                </a>
-                <a href="#nogo" style={{color: 'rgb(69,133,141)'}}>
-                  Customer Service
-                </a>
-                <a href="#nogo" style={{color: 'rgb(69,133,141)'}}>
-                  Return Policy
-                </a>
-              </div>
-            </div>
+      <Grid container>
+        <Grid item xs={12} sm={4}>
+          <div className={classes.divcenter}>
+            <img src={logo} alt="Logo 232x145" height="145" width="232" />
+          </div>
+        </Grid>
+        <Grid item xs={12} sm={8}>
+          <div className={classes.navlinks}>
+            <Button>
+              Home
+            </Button>
+            <Button>
+              About Us
+            </Button>
+            <Button>
+              Sell on Emart
+            </Button>
+            <Button>
+              Customer Service
+            </Button>
+            <Button>
+              Return Policy
+            </Button>
           </div>
         </Grid>
       </Grid>

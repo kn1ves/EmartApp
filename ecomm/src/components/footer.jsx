@@ -10,10 +10,10 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 const styles = {
   root: {
     width: '100%',
-    backgroundColor: "rgb(29,128,240)",
+    backgroundColor: "#4dc5da",
   },
   footer: {
-    backgroundColor: "rgb(29,128,240)",
+    backgroundColor: "#4dc5da",
   },
 };
 

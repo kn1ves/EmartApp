@@ -8,8 +8,7 @@ import Footer from './Footer';
 const App = () => (
   <div>
   	<Logo />
-  	<Banner />
-    <Header />
+  	<Header />
     <Main />
     <Footer />
   </div>

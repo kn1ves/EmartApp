@@ -6,6 +6,7 @@ import Toolbar from 'material-ui/Toolbar';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import SearchBarReact from './searchbar';
 import AppDrawer from './drawer';
+import LoginPopup from './login';
 
 const styles = {      
   root: {
@@ -22,8 +23,9 @@ const styles = {
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: 'rgb(29,128,240)' }, // Purple and green play nicely together.
-    secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
+    //primary: { main: 'rgb(29,128,240)' }, 
+    primary: {main: '#4dc5da'},
+    secondary: { main: '#11cb5f' }, 
   },
 });
 
@@ -38,6 +40,7 @@ function ButtonAppBar(props) {
             <div className={classes.flex}>
               <SearchBarReact />
             </div>
+            <LoginPopup />
           </Toolbar>
         </AppBar>
       </div>

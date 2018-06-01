@@ -2,32 +2,58 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 
 const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexGrow: 1,
-  },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: '100%',
     padding: 10,
   },
-  menu: {
-    width: 200,
+  paper: {
+    width: '50%',
+    paddingTop: 25,
+    padding: 10,
+    marginTop: 35,
+    marginBottom: 35,
+  },
+  title: {
+    backgroundColor: '#4dc5da',
+    fontWeight: 800,
+    color: '#fff',
+    height: 80,
+    width: '60%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignText: 'center',
+    borderRadius: 12,
+    marginTop: -45,
+  },
+  whitetext: {
+    color: '#fff',
+  },
+  flex: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   root: {
     width: '100%',
+    backgroundColor: '#cdcdcd',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignText: 'center',
   },
-  flex1: {
-    flex:70,
-  }
 });
 
 
-class SignUp extends React.Component {
+class Signup extends React.Component {
   state = {
     email: '',
     password: '',
@@ -51,8 +77,12 @@ class SignUp extends React.Component {
 
     return (
       <div className={classes.root}>
-      <div className={classes.container}>
-      <div>
+        <Paper className={classes.paper}>
+          <div className={classes.flex}>
+            <div className={classes.title}>
+              Sign Up
+            </div>
+          </div>
           <form noValidate autoComplete="off">
             <TextField
               id="email"
@@ -82,16 +112,22 @@ class SignUp extends React.Component {
               onChange={this.handleChange('repeatpass')}
               margin="normal"
             />
+            <div className={classes.flex}>
+              <Button variant="raised" style={{backgroundColor: '#4dc5da'}}>
+                <span className={classes.whitetext}>
+                  Go
+                </span>
+              </Button>
+            </div>
           </form>
-          </div>
-        </div>
+        </Paper>
       </div>
     );
   }
 }
 
-SignUp.propTypes = {
+Signup.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SignUp);
+export default withStyles(styles)(Signup);
