@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import FilterStepper from './filterstepper';
+import FilterExpansion from './filtertest';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -21,7 +22,7 @@ function Filter(props) {
         <Typography variant="headline" component="h3">
           Filters
         </Typography>
-        <FilterStepper />
+        <FilterExpansion />
       </Paper>
     </div>
   );

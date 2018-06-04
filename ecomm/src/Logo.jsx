@@ -20,7 +20,9 @@ const styles = theme => ({
     fontWeight: 250,
     textDecoration: 'none',
     height: 145,
-    paddingTop: '13%',
+    paddingTop: '12%',
+    display: 'flex',
+    flexDirection: 'row-reverse',
   },
 });
 
@@ -38,19 +40,19 @@ function Logo(props) {
         <Grid item xs={12} sm={8}>
           <div className={classes.navlinks}>
             <Button>
-              Home
-            </Button>
-            <Button>
               About Us
-            </Button>
-            <Button>
-              Sell on Emart
             </Button>
             <Button>
               Customer Service
             </Button>
             <Button>
               Return Policy
+            </Button>
+            <Button>
+              Sell on Emart
+            </Button>
+            <Button>
+              Home
             </Button>
           </div>
         </Grid>
