@@ -1,9 +1,9 @@
 import React from 'react';
 import Logo from './Logo';
-import Banner from './Banner';
 import Header from './Header';
 import Main from "./Main";
 import Footer from './Footer';
+import Showcase from './components/showcase';
 
 const App = () => (
   <div>
@@ -11,6 +11,7 @@ const App = () => (
   	<Header />
     <Main />
     <Footer />
+    <Showcase title="Canali Suit" price="$2499" imgurl="canali.jpg" />
   </div>
 )
 

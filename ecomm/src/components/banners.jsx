@@ -15,7 +15,6 @@ import image3 from "../assets/img/bg3.jpg";
 
 class Banners extends React.Component {
   render() {
-    const { classes } = this.props;
     const settings = {
       dots: true,
       infinite: true,
