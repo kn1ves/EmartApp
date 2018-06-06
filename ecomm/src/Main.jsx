@@ -3,7 +3,9 @@ import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import Shoes from './Shoes'
 import Checkout from './Checkout'
-import Signup from './Signup'
+import Signup from './SignUp'
+import Product from './Product'
+import Carousel from './carousel'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -17,6 +19,8 @@ const Main = () => (
       <Route path='/shoes' component={Shoes}/>
       <Route path='/checkout' component={Checkout}/>
       <Route path='/signup' component={Signup}/>
+      <Route path='/product' component={Product}/>
+      <Route path='/carousel' component={Carousel}/>
     </Switch>
   </main>
 )
