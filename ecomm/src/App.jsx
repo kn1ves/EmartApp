@@ -11,7 +11,6 @@ const App = () => (
   	<Header />
     <Main />
     <Footer />
-    <Showcase title="Canali Suit" price="$2499" imgurl="canali.jpg" />
   </div>
 )
 

@@ -15,13 +15,12 @@ import Select from '@material-ui/core/Select';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import SlideShow from 'react-image-show';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CartIcon from 'react-icons/lib/fa/shopping-cart';
 import DollarIcon from 'react-icons/lib/fa/money';
 import imgurl from './img/canali-model.jpg';
-
-//Make seperate component for the expansion panels
-//Add small showcase images and make onclick event to change main image dynamically 
+import PanelProduct from './components/panelproduct';
 
 const styles = theme => ({
   root: {
@@ -83,10 +82,15 @@ const styles = theme => ({
   },
   formControl: {
     margin: theme.spacing.unit,
-    minWidth: 120,
+    marginTop: 25,
+    minWidth: 290,
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 2,
+  },
+  rootz: {
+    display: 'flex',
+    flexWrap: 'wrap',
   },
 });
 
@@ -96,100 +100,78 @@ class Product extends React.Component {
     price: '$1799',
     age: '1',
     name:'123',
-    expanded: null,
   };
-  handleChange = panel => (event, expanded) => {
-    this.setState({
-      expanded: expanded ? panel : false,
-    });
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
 
   render() {
     const { classes } = this.props;
     const { expanded } = this.state;
+    const urlArray = ['https://www.canali.com/media/catalog/product/cache/38/image/9df78eab33525d08d6e5fb8d27136e95/T/1/T13290-CX00517-301_i_ZOOM.jpg', 'https://www.canali.com/media/catalog/product/cache/38/image/9df78eab33525d08d6e5fb8d27136e95/T/1/T13290-CX00517-301_b_SCHEDA.jpg', 'https://www.canali.com/media/catalog/product/cache/38/image/9df78eab33525d08d6e5fb8d27136e95/T/1/T13290-CX00517-301_c_SCHEDA.jpg', 'https://www.canali.com/media/catalog/product/cache/38/image/9df78eab33525d08d6e5fb8d27136e95/T/1/T13290-CX00517-301_a_ZOOM.jpg']
 
     return (
       <div>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={6}>
             <div className={classes.imgdiv}>
-              <img src={imgurl} height="350" width="270" alt="test" />
+              <SlideShow
+              images={urlArray}
+              width="300px"
+              imagesWidth="270px"
+              imagesHeight="350px"
+              imagesHeightMobile="56vw"
+              thumbnailsWidth="600px"
+              thumbnailsHeight="850px"
+              thumbnails fixedImagesHeight
+              />
             </div>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <div>
-              <h2 className={classes.heading}>{this.state.title}</h2>
-              <h3 className={classes.subheading}>{this.state.price}</h3>
-              <ExpansionPanel style={{elevation:0, boxShadow:'none'}} expanded={expanded === 'panel1'} onChange={this.handleChange('panel1')}>
-          <ExpansionPanelSummary style={{marginLeft: 0, paddingLeft: 0}} expandIcon={<ExpandMoreIcon />}>
-            <h3 className={classes.bodytext}>
-              Description
-            </h3>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-              maximus est, id dignissim quam.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel style={{elevation:0, boxShadow:'none'}} expanded={expanded === 'panel2'} onChange={this.handleChange('panel2')}>
-          <ExpansionPanelSummary style={{marginLeft: 0, paddingLeft: 0}} expandIcon={<ExpandMoreIcon />}>
-            <h3 className={classes.bodytext}>
-              Designer Information
-            </h3>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-              Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar
-              diam eros in elit. Pellentesque convallis laoreet laoreet.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel style={{elevation:0, boxShadow:'none'}} expanded={expanded === 'panel3'} onChange={this.handleChange('panel3')}>
-          <ExpansionPanelSummary style={{marginLeft: 0, paddingLeft: 0}} expandIcon={<ExpandMoreIcon />}>
-            <h3 className={classes.bodytext}>
-              Size and Care
-            </h3>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography>
-              Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas
-              eros, vitae egestas augue. Duis vel est augue.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <Divider />
-            </div>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Paper>
-              Small images
-            </Paper>
-          </Grid>
-          <Grid item xs={12} sm={6}>
+            <h2 className={classes.heading}>{this.state.title}</h2>
+            <h3 className={classes.subheading}>{this.state.price}</h3>
+            <PanelProduct />
             <div className={classes.flex}>
-              <form className={classes.root} autoComplete="off">
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="age-simple">Age</InputLabel>
-          <Select
-            value={this.state.age}
-            onChange={this.handleChange}
-            inputProps={{
-              name: 'age',
-              id: 'age-simple',
-            }}
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-        </form>
+              <form className={classes.rootz} autoComplete="off">
+                <FormControl className={classes.formControl}>
+                  <InputLabel htmlFor="age-simple">Size</InputLabel>
+                  <Select
+                  value={this.state.age}
+                  onChange={this.handleChange}
+                  inputProps={{
+                    name: 'age',
+                    id: 'age-simple',
+                  }}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                  <InputLabel htmlFor="age-simple">Color</InputLabel>
+                  <Select
+                  value={this.state.age}
+                  onChange={this.handleChange}
+                  inputProps={{
+                    name: 'age',
+                    id: 'age-simple',
+                  }}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                  </Select>
+                </FormControl>
+              </form>
             </div>
           </Grid>
           <Grid item xs={12}>
