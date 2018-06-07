@@ -2,26 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
-import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import SlideShow from 'react-image-show';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CartIcon from 'react-icons/lib/fa/shopping-cart';
 import DollarIcon from 'react-icons/lib/fa/money';
-import imgurl from './img/canali-model.jpg';
 import PanelProduct from './components/panelproduct';
-
+//Make carousel thumbnails responsive
+//Make images local
 const styles = theme => ({
   root: {
   },
@@ -41,6 +32,9 @@ const styles = theme => ({
     fontSize: 20,
   },
   fullWidth: {
+    width: '100%',
+  },
+  fullWidth2: {
     width: '100%',
   },
   flex: {
@@ -83,7 +77,7 @@ const styles = theme => ({
   formControl: {
     margin: theme.spacing.unit,
     marginTop: 25,
-    minWidth: 290,
+    width: '45%',
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 2,
@@ -92,6 +86,9 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap',
   },
+  sales: {
+    backgroundColor: '#ddd',
+  }, 
 });
 
 class Product extends React.Component {
@@ -109,7 +106,6 @@ class Product extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { expanded } = this.state;
     const urlArray = ['https://www.canali.com/media/catalog/product/cache/38/image/9df78eab33525d08d6e5fb8d27136e95/T/1/T13290-CX00517-301_i_ZOOM.jpg', 'https://www.canali.com/media/catalog/product/cache/38/image/9df78eab33525d08d6e5fb8d27136e95/T/1/T13290-CX00517-301_b_SCHEDA.jpg', 'https://www.canali.com/media/catalog/product/cache/38/image/9df78eab33525d08d6e5fb8d27136e95/T/1/T13290-CX00517-301_c_SCHEDA.jpg', 'https://www.canali.com/media/catalog/product/cache/38/image/9df78eab33525d08d6e5fb8d27136e95/T/1/T13290-CX00517-301_a_ZOOM.jpg']
 
     return (
@@ -133,45 +129,51 @@ class Product extends React.Component {
             <h2 className={classes.heading}>{this.state.title}</h2>
             <h3 className={classes.subheading}>{this.state.price}</h3>
             <PanelProduct />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          </Grid>
+          <Grid item xs={12} sm={6}>
             <div className={classes.flex}>
-              <form className={classes.rootz} autoComplete="off">
-                <FormControl className={classes.formControl}>
-                  <InputLabel htmlFor="age-simple">Size</InputLabel>
-                  <Select
-                  value={this.state.age}
-                  onChange={this.handleChange}
-                  inputProps={{
-                    name: 'age',
-                    id: 'age-simple',
-                  }}
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
-                </FormControl>
-                <FormControl className={classes.formControl}>
-                  <InputLabel htmlFor="age-simple">Color</InputLabel>
-                  <Select
-                  value={this.state.age}
-                  onChange={this.handleChange}
-                  inputProps={{
-                    name: 'age',
-                    id: 'age-simple',
-                  }}
-                  >
-                    <MenuItem value="">
-                      <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
-                  </Select>
-                </FormControl>
-              </form>
+              <div className={classes.fullWidth2}>
+                <form className={classes.rootz} autoComplete="off">
+                  <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="age-simple">Size</InputLabel>
+                    <Select
+                    value={this.state.age}
+                    onChange={this.handleChange}
+                    inputProps={{
+                      name: 'age',
+                      id: 'age-simple',
+                    }}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="age-simple">Color</InputLabel>
+                    <Select
+                    value={this.state.age}
+                    onChange={this.handleChange}
+                    inputProps={{
+                      name: 'age',
+                      id: 'age-simple',
+                    }}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                  </FormControl>
+                </form>
+              </div>
             </div>
           </Grid>
           <Grid item xs={12}>
@@ -186,6 +188,11 @@ class Product extends React.Component {
                   <CartIcon size="24" className={classes.rightIcon} />
                 </Button>
               </div>
+            </div>
+          </Grid>
+          <Grid item xs={12}>
+            <div className={classes.sales}>
+              Sales pitch
             </div>
           </Grid>
         </Grid>
